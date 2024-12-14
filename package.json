@@ -1,0 +1,20 @@
+{
+  "name": "celix",
+  "version": "1.0.0",
+  "description": "This project is a database design for CELIX Technologies, which includes an Entity-Relationship Diagram to outline relationships among key data entities.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
