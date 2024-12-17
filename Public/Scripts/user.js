@@ -1,17 +1,37 @@
-document.getElementById("registrationForm").addEventListener("submit", register);
+let loginForm = document.getElementById("loginForm");
+if (loginForm) loginForm.addEventListener("submit", handleLogin);
 
-function register(event) {
-    event.preventDefault(); 
+let regForm = document.getElementById("regForm");
+if (regForm) regForm.addEventListener("submit", handleRegister);
 
-    const username = document.getElementById("regUsername").value;
-    const email = document.getElementById("regEmail").value;
-    const password = document.getElementById("regPassword").value;
+function handleLogin(event) {
+  event.preventDefault();
 
-    const user = {
-        username: username,
-        email: email,
-        password: password,
-    };
+  const user = getUserCredentials(["username", "pswd"]);
 
-    console.log("Registered User:", user);
+  console.log("User login attempt:", user);
+}
+
+function handleRegister(event) {
+  event.preventDefault();
+
+  const user = getUserCredentials(["fullName", "username", "pswd"]);
+
+  displayGreeting(user.username);
+  console.log("New User Registration:", user);
+}
+
+function getUserCredentials(fields) {
+  let userData = {};
+  fields.forEach((field) => {
+    userData[field] = document.getElementById(field).value;
+  });
+  return userData;
+}
+
+function displayGreeting(username) {
+  let greetingElement = document.getElementById("greeting");
+  if (greetingElement) {
+    greetingElement.innerText = `Welcome ${username}!!!!`;
+  }
 }
